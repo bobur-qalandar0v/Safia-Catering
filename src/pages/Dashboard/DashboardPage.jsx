@@ -107,11 +107,11 @@ function DashboardPage() {
                       : item.title_eng}
                   </span>
                   <div className="card__top-right_image">
-                    <img className="img" src="public/Star.png" alt="Start" />
-                    <img className="img" src="public/Star.png" alt="Star" />
-                    <img className="img" src="public/Star.png" alt="Star" />
-                    <img className="img" src="public/Star.png" alt="Star" />
-                    <img className="img" src="public/Star.png" alt="Star" />
+                    <img className="img" src="/Star.png" alt="Start" />
+                    <img className="img" src="/Star.png" alt="Star" />
+                    <img className="img" src="/Star.png" alt="Star" />
+                    <img className="img" src="/Star.png" alt="Star" />
+                    <img className="img" src="/Star.png" alt="Star" />
                   </div>
                 </div>
               </div>

@@ -73,7 +73,7 @@ function HeaderPart() {
         <div className="header__wrap">
           <div className="header__left">
             <Link onClick={handleClick} to="/">
-              <img className="header__logo" src="/public/Logo.png" alt="Logo" />
+              <img className="header__logo" src="/Logo.png" alt="Logo" />
             </Link>
           </div>
           <div className="header__right">
