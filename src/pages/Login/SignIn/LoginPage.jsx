@@ -1,5 +1,5 @@
 import { Button, Checkbox, Form, Input, message } from "antd";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import { API } from "../../../api";
@@ -36,15 +36,6 @@ function LoginPage() {
     }
   }, [token, navigate]);
 
-  if (!loading) {
-    return (
-      <div className="container">
-        <div className="wrap">
-          <LoadingAnimate />
-        </div>
-      </div>
-    );
-  }
   return (
     <div className="container">
       <div className="login-page">

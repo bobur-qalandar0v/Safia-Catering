@@ -92,9 +92,9 @@ export const routes = [
     path: "/basket_order",
     element: <BasketOrder />,
   },
-  {
-    id: 16,
-    path: "/login",
-    element: <LoginPage />,
-  },
+  // {
+  //   id: 16,
+  //   path: "/login",
+  //   element: <LoginPage />,
+  // },
 ];
