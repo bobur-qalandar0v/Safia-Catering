@@ -1,19 +1,15 @@
 import { Button, Form, Input, message } from "antd";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { API } from "../../api";
 import { urls } from "../../constants/urls";
 import { useNavigate } from "react-router-dom";
 import LoadingAniamte from "../../assets/icons/LoadingAnimate";
-import { useCompactItemContext } from "antd/es/space/Compact";
-import { LangContext } from "../../context/LanguageContext";
 import useLanguage from "../../hooks/useLanguage";
 
 function PersonInformationPage() {
   const [form] = Form.useForm();
   const storedId = localStorage.getItem("userId");
   const [userData, setUserData] = useState(null);
-
-  const { language } = useContext(LangContext);
 
   const { t } = useLanguage();
 
@@ -73,12 +69,10 @@ function PersonInformationPage() {
                 rules={[
                   {
                     required: true,
-                    // message: "Пожалуйста, введите свое имя пользователя!",
                     message: "",
                   },
                 ]}
               >
-                {/* <span className="form__span">Ваше имя</span> */}
                 <Input type="text" className="input__name" />
               </Form.Item>
               <span className="form__span-tel">{t("Number")}</span>
@@ -98,7 +92,6 @@ function PersonInformationPage() {
                   },
                 ]}
               >
-                {/* <span className="form__span">Номер</span> */}
                 <Input addonBefore="+998" className="input__tel" />
               </Form.Item>
             </div>

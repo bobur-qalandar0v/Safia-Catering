@@ -21,7 +21,7 @@ function OrderHistory() {
                 <div className="order__banner-top">
                   <img
                     className="order__banner-img"
-                    src="/public/AboutUs.png"
+                    src="/AboutUs.png"
                     alt="img"
                   />
                   <p>

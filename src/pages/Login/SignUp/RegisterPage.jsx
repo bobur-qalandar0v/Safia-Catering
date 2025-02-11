@@ -1,5 +1,5 @@
 import { Button, Checkbox, Form, Input, message } from "antd";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../../api";
 import { urls } from "../../../constants/urls";
@@ -32,10 +32,6 @@ function RegisterPage() {
     setPhone(formatPhoneNumber(e.target.value));
   };
 
-  // const getLoginData = () => {
-  //   API.get(urls.auth.user).then((res) => console.log(res.data));
-  // };
-
   const postLogin = (data) => {
     setLoading(false);
     API.post(`${urls.auth.user}`, data).then((res) => {
@@ -56,10 +52,6 @@ function RegisterPage() {
     postLogin(data);
     addUser(data);
   };
-
-  useEffect(() => {
-    // getLoginData();
-  }, []);
 
   if (!loading) {
     return (

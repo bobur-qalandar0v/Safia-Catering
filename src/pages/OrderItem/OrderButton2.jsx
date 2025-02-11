@@ -69,74 +69,23 @@ function OrderButton2() {
             </div>
           ))}
 
-          {
-            !PersonCount ? (
-              <div className="zaqas__number-item" onClick={togglePersonCount}>
-                <h3>100 +</h3>
+          {!PersonCount ? (
+            <div className="zaqas__number-item" onClick={togglePersonCount}>
+              <h3>100 +</h3>
+            </div>
+          ) : (
+            extraCount.map((item) => (
+              <div
+                className={`zaqas__number-item ${
+                  selectedCard?.count === item ? "active" : ""
+                }`}
+                key={item}
+                onClick={() => handlePersonCount(item)}
+              >
+                <h3>{item}</h3>
               </div>
-            ) : (
-              extraCount.map((item) => (
-                <div
-                  className={`zaqas__number-item ${
-                    selectedCard?.count === item ? "active" : ""
-                  }`}
-                  key={item}
-                  onClick={() => handlePersonCount(item)}
-                >
-                  <h3>{item}</h3>
-                </div>
-              ))
-            )
-            // !PersonCount ?
-            //   <div className="zaqas__number-item">
-            //       <h3>100 +</h3>
-            //   </div>
-            //  : (
-            //   extraCount.map(count => (
-            //   ))
-            // )
-          }
-          {/* {selectedCard?.person_count?.map((item) => {
-            <div
-              className={`zaqas__number-item ${
-                selectedCard?.count === item?.count ? "active" : ""
-              }`}
-              key={item.id}
-              onClick={() => handlePersonCount(item)}
-            >
-              <h3>{item?.count}</h3>
-            </div>;
-          })} */}
-          {/* <div className="zaqas__number-item">
-            <h3>100 +</h3>
-          </div> */}
-          {/* <div className="zaqas__number-item">
-            <h3>30</h3>
-          </div>
-          <div className="zaqas__number-item">
-            <h3>40</h3>
-          </div>
-          <div className="zaqas__number-item">
-            <h3>50</h3>
-          </div>
-          <div className="zaqas__number-item">
-            <h3>60</h3>
-          </div>
-          <div className="zaqas__number-item">
-            <h3>70</h3>
-          </div>
-          <div className="zaqas__number-item">
-            <h3>80</h3>
-          </div>
-          <div className="zaqas__number-item">
-            <h3>90</h3>
-          </div>
-          <div className="zaqas__number-item">
-            <h3>100</h3>
-          </div>
-          <div className="zaqas__number-item">
-            <h3>100 +</h3>
-          </div> */}
+            ))
+          )}
         </div>
         <Link
           className="zaqas__number-link"

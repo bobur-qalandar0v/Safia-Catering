@@ -96,14 +96,15 @@ function OrderItemPage() {
           <br />
           <div className="qwerty">
             <span className="zaqas__item-title">
-              {zaqas?.price ? zaqas.price.toLocaleString() : "Null"} {t("sum")}
+              {zaqas?.price ? zaqas?.price?.toLocaleString() : "Null"}{" "}
+              {t("sum")}
             </span>
             <div>
-              <img className="img" src="/public/Star.png" alt="" />
-              <img className="img" src="/public/Star.png" alt="" />
-              <img className="img" src="/public/Star.png" alt="" />
-              <img className="img" src="/public/Star.png" alt="" />
-              <img className="img" src="/public/Star.png" alt="" />
+              <img className="img" src="/Star.png" alt="" />
+              <img className="img" src="/Star.png" alt="" />
+              <img className="img" src="/Star.png" alt="" />
+              <img className="img" src="/Star.png" alt="" />
+              <img className="img" src="/Star.png" alt="" />
             </div>
           </div>
         </div>

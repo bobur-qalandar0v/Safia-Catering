@@ -17,11 +17,7 @@ function BasketOrder() {
       <div className="container">
         <div className="basket__order-wrap">
           <div className="basket__order-content">
-            <img
-              className="basket__order-top"
-              src="public/Logo.png"
-              alt="Logo"
-            />
+            <img className="basket__order-top" src="/Logo.png" alt="Logo" />
             <div className="basket__order-center">
               <h3>{t("rahmat")}</h3>
               <div>

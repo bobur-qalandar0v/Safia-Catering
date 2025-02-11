@@ -12,23 +12,13 @@ function ToWorkPage() {
           </div>
           <div className="towork-page__main">
             <div className="towork-page__img">
-              <img
-                className="towork-page__logo"
-                src="/public/Logo.png"
-                alt="Logo"
-              />
-              <img
-                className="towork-page__set"
-                src="/public/AboutUs.png"
-                alt="img"
-              />
+              <img className="towork-page__logo" src="/Logo.png" alt="Logo" />
+              <img className="towork-page__set" src="/AboutUs.png" alt="img" />
             </div>
             <div className="towork-page__content">
               <div className="join-team">
                 <h3 className="join-team__title">{t("JoinTheTeam")}</h3>
-                <p className="join-team__content">
-                  {t("faol")}
-                </p>
+                <p className="join-team__content">{t("faol")}</p>
               </div>
               <div className="we-looking-for">
                 <h3 className="we-looking-for__title">{t("looking")}</h3>
@@ -49,9 +39,7 @@ function ToWorkPage() {
                 </ul>
               </div>
               <div className="last">
-                <h3 className="last__title">
-                  {t("birQismi")}
-                </h3>
+                <h3 className="last__title">{t("birQismi")}</h3>
                 <ul>
                   <li>{t("silka")}</li>
                   <li>https://mssg.me/safiacatering/recruit</li>

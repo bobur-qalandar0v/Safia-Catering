@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CheckMarkIcon from "../../assets/icons/CheckMarkIcon";
 import { BasketContext } from "../../context/basketContext";
@@ -19,15 +19,6 @@ function OrderButton3Item() {
     setSelectedCard([]);
   };
 
-  useEffect(() => {
-    // const handleClick = () => {
-    //   navigate("/");
-    //   localStorage.removeItem("selectedCard");
-    //   selectedCard([]);
-    // };
-    // return handleClick;
-  }, []);
-
   return (
     <div className="container">
       <div className="zaqas__paket">
@@ -46,14 +37,14 @@ function OrderButton3Item() {
             <div className="all">
               <Link to="/order3">
                 <img
-                  src="public/right.png"
+                  src="/right.png"
                   alt=""
                   className="zaqas__paket-right_btn"
                 />
               </Link>
               <Link to="/order3-item">
                 <img
-                  src="public/left.png"
+                  src="/left.png"
                   alt=""
                   className="zaqas__paket-right_btn"
                 />

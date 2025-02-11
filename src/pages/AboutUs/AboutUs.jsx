@@ -12,16 +12,8 @@ function AboutUs() {
           </div>
           <div className="aboutUs-page__main">
             <div className="aboutUs-page__img">
-              <img
-                className="aboutUs-page__logo"
-                src="/public/Logo.png"
-                alt="Logo"
-              />
-              <img
-                className="aboutUs-page__set"
-                src="/public/AboutUs.png"
-                alt="img"
-              />
+              <img className="aboutUs-page__logo" src="/Logo.png" alt="Logo" />
+              <img className="aboutUs-page__set" src="/AboutUs.png" alt="img" />
             </div>
             <div className="aboutUs-page__content">
               <p>{t("Aboutus")}</p>

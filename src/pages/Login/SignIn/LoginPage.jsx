@@ -7,16 +7,12 @@ import { urls } from "../../../constants/urls";
 import LoadingAnimate from "../../../assets/icons/LoadingAnimate";
 
 function LoginPage() {
-  const [loading, setLoading] = useState(true);
-
   const { setUserToken, token } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const postLogin = (data) => {
-    // setLoading(false);
     API.post(`${urls.auth.login}`, data)
       .then((res) => {
-        // setLoading(false);
         if (res.status == 201) {
           message.open({ type: "success", content: "Вход успешен" });
           setUserToken(res.data.token);
@@ -60,7 +56,7 @@ function LoginPage() {
         >
           <div className="form__wrap">
             <div className="login-page__logo">
-              <img src="public/Logo.png" alt="Logo" />
+              <img src="/Logo.png" alt="Logo" />
             </div>
             <div className="login-page__inputs">
               <Form.Item
