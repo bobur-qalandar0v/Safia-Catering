@@ -1,0 +1,96 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $white-color;
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 14px;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    height: 100%;
+  }
+
+  &__logo {
+    width: 80px;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 12px;
+    height: 100%;
+    width: 70%;
+
+    @media screen and (max-width: 400px) {
+      gap: 8px;
+    }
+  }
+
+  &__button {
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 40px;
+    background-color: $secondary-color;
+
+    @media screen and (max-width: 400px) {
+      width: 55px;
+      height: 35px;
+    }
+  }
+
+  &__basket {
+    position: relative;
+  }
+
+  .basket__count {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    top: 8px;
+    right: 12px;
+    font-size: 14px;
+    color: $white-color;
+    width: 16px;
+    height: 16px;
+    font-family: sans-serif;
+    border-radius: 50%;
+
+    @media screen and (max-width: 400px) {
+      width: 14px;
+      height: 14px;
+      font-size: 12px;
+      top: 6px;
+      right: 10px;
+    }
+  }
+
+  .basket__count.active {
+    background-color: $main-color;
+    color: $secondary-color;
+  }
+
+  .basket__count.activeButton {
+    background-color: $secondary-color;
+    color: $main-color;
+  }
+
+  &__button.active {
+    background-color: $main-color;
+  }
+}

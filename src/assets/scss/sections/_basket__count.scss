@@ -1,0 +1,115 @@
+.basket {
+  overflow: auto;
+  height: 100%;
+  padding: 10px 15px;
+
+  &__title {
+    font-size: 24px;
+  }
+  &__delete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-button {
+      background-color: transparent;
+      border: none;
+      color: red;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  &__restore-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #008318;
+    cursor: pointer;
+  }
+
+  &__main {
+    &-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    &-btn1 {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 10px;
+      .increment {
+        width: 100%;
+        background-color: white;
+        border: none;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .raqam {
+        background-color: white;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+      }
+      .decrement {
+        height: 40px;
+        width: 100%;
+        background-color: white;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+    &-btn2 {
+      width: 100%;
+      height: 40px;
+      background-color: white;
+      border-radius: 20px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+      color: red;
+    }
+    &-button {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+  }
+  &__btns{
+    margin-top: 10px;
+  }
+}
+.Восстановить {
+  background-color: #f0f0f0;
+  color: green;
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.Удалить {
+  background-color: #f0f0f0;
+  color: red;
+  border: none;
+  border-radius: 20px;
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
