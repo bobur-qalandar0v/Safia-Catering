@@ -35,14 +35,14 @@ function OrderButton3() {
             <div className="all">
               <Link to={"/order3"}>
                 <img
-                  src="public/right.png"
+                  src="/right.png"
                   alt=""
                   className="zaqas__paket-right_btn"
                 />
               </Link>
               <Link to={"/order3-item"}>
                 <img
-                  src="public/left.png"
+                  src="/left.png"
                   alt=""
                   className="zaqas__paket-right_btn"
                 />
