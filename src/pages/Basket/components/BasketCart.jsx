@@ -28,7 +28,6 @@ function BasketCart() {
     increment,
     decrement,
     deleteBasket,
-    orderHistory,
     setLocaleOrderHistory,
   } = useContext(BasketContext);
 

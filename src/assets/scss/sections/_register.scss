@@ -1,23 +1,25 @@
 .login-page {
-  height: 100vh;
+  height: 90%;
   padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: end;
+  overflow: auto;
 
   &__wrap {
-    height: 85%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
   }
 
-  .next__button-wrap {
-    width: 100%;
-    height: 40px;
-  }
+  // .next__button-wrap {
+  //   width: 100%;
+  //   height: 40px;
+  //   border: 1px solid black;
+  // }
 
   .next__button-item {
     width: 100%;

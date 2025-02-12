@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import { API } from "../../../api";
 import { urls } from "../../../constants/urls";
-import LoadingAnimate from "../../../assets/icons/LoadingAnimate";
 
 function LoginPage() {
   const { setUserToken, token } = useContext(AuthContext);
@@ -34,7 +33,7 @@ function LoginPage() {
     if (token) {
       navigate("/userdata");
     }
-  }, [token, navigate]);
+  }, [token]);
 
   return (
     <div className="container">
