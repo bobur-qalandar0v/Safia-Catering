@@ -29,7 +29,7 @@ export const routes = [
   },
   {
     id: 3,
-    path: `${getToken ? "/userdata" : "/"}`,
+    path: "/userdata",
     element: <UserData />,
   },
   {

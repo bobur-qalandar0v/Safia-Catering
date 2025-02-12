@@ -15,7 +15,7 @@ function LoginPage() {
         if (res.status == 201) {
           message.open({ type: "success", content: "Вход успешен" });
           setUserToken(res.data.token);
-          navigate("/userdata");
+          navigate("/");
         }
       })
       .catch((err) => {

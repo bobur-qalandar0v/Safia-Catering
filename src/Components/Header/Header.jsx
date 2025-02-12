@@ -5,7 +5,7 @@ import LoginIcon from "../../assets/icons/LoginIcon";
 import LoginIconActive from "../../assets/icons/LoginIconActive";
 import BasketIcon from "../../assets/icons/BasketIcon";
 import BasketIconActive from "../../assets/icons/BasketIconActive";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Request from "../../pages/Request";
 import { BasketContext } from "../../context/basketContext";
 import { AuthContext } from "../../context/AuthContext";
@@ -16,6 +16,7 @@ function HeaderPart() {
   const { basket, setSelectedCard } = useContext(BasketContext);
   const { token } = useContext(AuthContext);
 
+  const navigate = useNavigate();
   const Location = useLocation();
   const userId = localStorage.getItem("userId");
 
@@ -106,18 +107,18 @@ function HeaderPart() {
                 {basket.length === 0 ? "" : basket.length}
               </span>
             </Link>
-            {token !== "" ? (
-              <Link
-                to="/userdata"
+            {token ? (
+              <button
                 className={`header__button ${
                   activeButton === 4 ? "active" : ""
                 }`}
                 onClick={() => {
                   setActiveButton(4);
+                  navigate("/userdata");
                 }}
               >
                 {activeButton === 4 ? <LoginIconActive /> : <LoginIcon />}
-              </Link>
+              </button>
             ) : (
               <Request>
                 <button
