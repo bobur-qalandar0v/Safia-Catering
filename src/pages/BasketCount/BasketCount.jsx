@@ -63,7 +63,7 @@ function BasketCount() {
       };
     });
 
-    API.patch(`${urls.card.edit(cardId)}`, { foods: updateData })
+    API.patch(`${urls.sets.edit(cardId)}`, { foods: updateData })
       .then((res) => {
         if (res.status == 200) {
           navigate(-1);

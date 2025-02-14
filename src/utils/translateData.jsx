@@ -405,6 +405,21 @@ export const translateData = {
     ru: "На главную",
     eng: "Home page",
   },
+  topilmadi: {
+    uz: "Hech narsa topilmadi",
+    ru: "Ничего не найдено",
+    eng: "Nothing found",
+  },
+  sorov: {
+    uz: "So'rovingizni o'zgartirib ko'ring",
+    ru: "Попробуйте изменить запрос",
+    eng: "Try changing your request",
+  },
+  qidiruv_natija: {
+    uz: "Qidiruv natijalari",
+    ru: "Результаты поиска",
+    eng: "Search results",
+  },
   boldim: {
     uz: "va shaklni to'ldiring yoki menejerlar bilan bog'laning.",
     ru: "и заполняй анкету, или свяжись с менеджерами.",

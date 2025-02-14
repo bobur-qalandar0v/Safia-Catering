@@ -21,7 +21,7 @@ function DashboardPage() {
   const { t } = useLanguage();
 
   const getFood = () => {
-    API.get(urls.card.get).then((res) => {
+    API.get(urls.sets.get).then((res) => {
       setFood(res.data);
       setLoadiing(false);
     });

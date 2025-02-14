@@ -23,7 +23,7 @@ function OrderItemPage() {
   const { id } = useParams();
 
   const getProduct = () => {
-    API.get(`${urls.card.get}/${id}`).then((res) => {
+    API.get(`${urls.sets.get}/${id}`).then((res) => {
       setZaqas(res.data);
       setLoading(false);
     });
