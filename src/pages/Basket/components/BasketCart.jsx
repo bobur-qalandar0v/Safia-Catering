@@ -15,7 +15,6 @@ function BasketCart() {
   const [form] = useForm();
   const storedId = localStorage.getItem("userId");
 
-  console.log(storedId);
   const [userData, setUserData] = useState(null);
 
   const navigate = useNavigate();
