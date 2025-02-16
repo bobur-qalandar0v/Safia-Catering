@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { API } from "../../api";
 import { urls } from "../../constants/urls";
 import LoadingAnimate from "../../assets/icons/LoadingAnimate";
@@ -12,7 +12,7 @@ import useLanguage from "../../hooks/useLanguage";
 const { Panel } = Collapse;
 
 function OrderItemPage() {
-  const { addItemToBasket, card, setCard, basket } = useContext(BasketContext);
+  const { addItemToBasket, setCard, basket } = useContext(BasketContext);
   const [zaqas, setZaqas] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,6 +21,8 @@ function OrderItemPage() {
   const { t } = useLanguage();
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const getProduct = () => {
     API.get(`${urls.sets.get}/${id}`).then((res) => {
@@ -31,6 +33,7 @@ function OrderItemPage() {
 
   const handleEdit = (data) => {
     localStorage.setItem("changedId", data.id);
+    navigate("/basket_count");
   };
 
   const handleOrder = () => {
@@ -77,7 +80,7 @@ function OrderItemPage() {
   return (
     <div className="container">
       <div className="zaqas__item">
-        <img src={zaqas.image} alt="" className="zaqas__item-img" />
+        <img src={zaqas?.image} alt="order_img" className="zaqas__item-img" />
         <span className="zaqas__item-position">
           {language == "uz"
             ? zaqas.title_uz
@@ -96,8 +99,7 @@ function OrderItemPage() {
           <br />
           <div className="qwerty">
             <span className="zaqas__item-title">
-              {zaqas?.price ? zaqas?.price?.toLocaleString() : "Null"}{" "}
-              {t("sum")}
+              {zaqas?.price?.toLocaleString()} {t("sum")}
             </span>
             <div>
               <img className="img" src="/Star.png" alt="" />
@@ -110,7 +112,7 @@ function OrderItemPage() {
         </div>
         <div className="select">
           <Collapse accordion>
-            {card.map((category) => (
+            {zaqas?.foods?.map((category) => (
               <Panel
                 header={
                   language === "uz"
@@ -121,32 +123,29 @@ function OrderItemPage() {
                 }
                 key={category.id}
               >
-                <Link
+                <button
                   className="collapse__link"
-                  to="/basket_count"
                   onClick={() => handleEdit(category)}
                 >
                   <EditIcon />
                   {t("Change")}
-                </Link>
-                {category?.items
-                  ?.filter((item) => !item?.removed)
-                  .map((item) => (
-                    <div className="bottom" key={item.id}>
-                      <div className="allq">
-                        <p>
-                          {language == "uz"
-                            ? item?.name_uz
-                            : language == "ru"
-                            ? item?.name_ru
-                            : item?.name_eng}
-                        </p>
-                        <span>
-                          {item.count} {t("sht")}
-                        </span>
-                      </div>
+                </button>
+                {category?.items?.map((item) => (
+                  <div className="bottom" key={item.id}>
+                    <div className="allq">
+                      <p>
+                        {language == "uz"
+                          ? item?.name_uz
+                          : language == "ru"
+                          ? item?.name_ru
+                          : item?.name_eng}
+                      </p>
+                      <span style={{ whiteSpace: "nowrap" }}>
+                        {item.count} {t("sht")}
+                      </span>
                     </div>
-                  ))}
+                  </div>
+                ))}
               </Panel>
             ))}
           </Collapse>

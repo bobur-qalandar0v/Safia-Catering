@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const BasketContext = createContext(null);
 
 export function BasketProvider({ children }) {
-  let localeInitatial = localStorage.getItem("basketCount")
+  let localeBasketCount = localStorage.getItem("basketCount")
     ? JSON.parse(localStorage.getItem("basketCount"))
     : [];
 
@@ -18,7 +18,7 @@ export function BasketProvider({ children }) {
   const getLocaleItem = JSON.parse(localStorage.getItem("selectedCard"));
 
   const [selectedCard, setSelectedCard] = useState(getLocaleItem);
-  const [card, setCard] = useState(localeInitatial);
+  const [card, setCard] = useState(localeBasketCount);
   const [basket, setBasket] = useState(localeBasket);
   const [orderHistory, setOrderHistory] = useState(localeOrderHistory);
 
@@ -52,14 +52,6 @@ export function BasketProvider({ children }) {
         data,
       }))
     );
-    // basket.map((item) => ({
-    //   ...item,
-    //   date: data.date,
-    //   username: data.username,
-    //   promacode: data.promacode,
-    //   tel: data.tel,
-    // }))
-    console.log(data);
   };
 
   const increment = (id) => {
@@ -124,7 +116,7 @@ export function BasketProvider({ children }) {
         return {
           ...item,
           items: item?.items?.map((i) =>
-            i?.id === id ? { ...i, removed: true } : i
+            i?.id === id ? { ...i, count: 0 } : i
           ),
         };
       })
@@ -177,6 +169,7 @@ export function BasketProvider({ children }) {
       })
     );
   }
+
   return (
     <BasketContext.Provider
       value={{
@@ -198,9 +191,6 @@ export function BasketProvider({ children }) {
         addItemToCart,
         addItemToBasket,
         deleteItem,
-        restoreItem,
-        deleteAllItems,
-        restoreAllItems,
       }}
     >
       {children}

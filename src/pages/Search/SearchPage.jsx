@@ -64,8 +64,6 @@ function SearchPage() {
             : language == "ru"
             ? item.name_ru
             : item.name_eng;
-
-        const price = item?.price;
         return name.toLowerCase().includes(searchValue.toLowerCase());
       });
       setProducts(filteredResults);

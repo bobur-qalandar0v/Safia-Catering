@@ -31,12 +31,72 @@
   }
 
   &__main {
-    &-top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    &-content {
+      border: 1px solid #999;
+      border-radius: 20px;
+      padding-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+     margin-top: 20px;
+    }
+
+    &-img {
+      width: 100%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    &-text {
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      gap: 10px;
+      padding: 4px 6px;
+    }
+
+    &-name{
+      text-align: start;
+      padding: 5px;
+    }
+
+    &-control {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .decrement,
+    .increment {
+      border: 1px solid $main-color;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      font-size: 20px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-top: 10px;
+      justify-content: center;
     }
+
+    &-count{
+      font-size: 18px;
+    }
+
+    .delete__icon {
+      height: 30px;
+      width: 30px;
+      border: 1px solid $main-color;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     &-btn1 {
       width: 100%;
       display: flex;
@@ -89,7 +149,7 @@
       margin-bottom: 20px;
     }
   }
-  &__btns{
+  &__btns {
     margin-top: 10px;
   }
 }
