@@ -18,6 +18,7 @@ function HeaderPart() {
 
   const navigate = useNavigate();
   const Location = useLocation();
+
   const userId = localStorage.getItem("userId");
 
   const handleClick = () => {
@@ -73,7 +74,7 @@ function HeaderPart() {
       <div className="container">
         <div className="header__wrap">
           <div className="header__left">
-            <Link onClick={handleClick} to="/">
+            <Link onClick={handleClick} to="/home">
               <img className="header__logo" src="/Logo.png" alt="Logo" />
             </Link>
           </div>

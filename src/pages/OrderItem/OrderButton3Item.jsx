@@ -14,7 +14,7 @@ function OrderButton3Item() {
   const { t } = useLanguage();
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/home");
     localStorage.removeItem("selectedCard");
     setSelectedCard([]);
   };

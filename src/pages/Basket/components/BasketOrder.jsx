@@ -33,7 +33,7 @@ function BasketOrder() {
                 {t("CommercialOffer")}
                 <PDFIcon />
               </button>
-              <Link to="/" className="global__btn" onClick={handleClick}>
+              <Link to="/home" className="global__btn" onClick={handleClick}>
                 {t("asosiyBet")}
               </Link>
             </div>

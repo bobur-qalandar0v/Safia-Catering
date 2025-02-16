@@ -16,12 +16,13 @@ import {
   PersonInformationPage,
   SearchPage,
   ToWorkPage,
+  RestartPage,
 } from "../pages";
 
 export const routes = [
   {
     id: 1,
-    path: "/",
+    path: "/home",
     element: <DashboardPage />,
   },
   {
@@ -103,5 +104,10 @@ export const routes = [
     id: 17,
     path: "/search",
     element: <SearchPage />,
+  },
+  {
+    id: 18,
+    path: "/",
+    element: <RestartPage />,
   },
 ];
