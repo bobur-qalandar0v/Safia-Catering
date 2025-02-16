@@ -13,9 +13,9 @@ function LoginPage() {
     API.post(`${urls.auth.login}`, data)
       .then((res) => {
         if (res.status == 201) {
+          navigate("/home");
           message.open({ type: "success", content: "Вход успешен" });
           setUserToken(res.data.token);
-          navigate("/home");
         }
       })
       .catch((err) => {

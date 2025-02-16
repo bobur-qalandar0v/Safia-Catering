@@ -15,6 +15,7 @@ function RestartPage() {
     setCard([]);
     setOrderHistory([]);
     navigate("/home");
+    window.location.reload();
   };
   return (
     <div className="container">

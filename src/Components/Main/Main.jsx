@@ -13,7 +13,7 @@ function Main() {
     location.pathname === "/register" || location.pathname === "/login";
 
   if (token && isAuthPage) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/home" replace />;
   }
 
   useEffect(() => {
