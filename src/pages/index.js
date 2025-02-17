@@ -15,7 +15,6 @@ import OrderButton3Item from "./OrderItem/OrderButton3Item";
 import OrderItemPage from "./OrderItem/OrderItemPage";
 import PersonInformationPage from "./PersonInformation/PersonInformationPage";
 import Request from "./Request";
-import RestartPage from "./Restart/RestartPage";
 import SearchPage from "./Search/SearchPage";
 import ToWorkPage from "./ToWork/ToWorkPage";
 
@@ -39,5 +38,4 @@ export {
   PersonInformationPage,
   BasketOrder,
   BasketCount,
-  RestartPage,
 };
