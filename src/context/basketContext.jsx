@@ -15,9 +15,11 @@ export function BasketProvider({ children }) {
     ? JSON.parse(localStorage.getItem("order_history"))
     : [];
 
-  const getLocaleItem = JSON.parse(localStorage.getItem("selectedCard"));
+  let localeSelectedCard = localStorage.getItem("selectedCard")
+    ? localStorage.getItem("selectedCard")
+    : null;
 
-  const [selectedCard, setSelectedCard] = useState(getLocaleItem);
+  const [selectedCard, setSelectedCard] = useState(localeSelectedCard);
   const [card, setCard] = useState(localeBasketCount);
   const [basket, setBasket] = useState(localeBasket);
   const [orderHistory, setOrderHistory] = useState(localeOrderHistory);

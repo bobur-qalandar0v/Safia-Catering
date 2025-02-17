@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BasketContext } from "../../context/basketContext";
 import useLanguage from "../../hooks/useLanguage";
 import { message } from "antd";
@@ -7,6 +7,8 @@ import { message } from "antd";
 function OrderButton2() {
   const { selectedCard, setSelectedCard } = useContext(BasketContext);
   const { t } = useLanguage();
+
+  const navigate = useNavigate();
 
   const [PersonCount, setPersonCount] = useState(false);
 
@@ -19,6 +21,8 @@ function OrderButton2() {
   const handleClick = () => {
     if (selectedCard?.count == null) {
       message.open({ type: "warning", content: `${t("selectOne")}` });
+    } else {
+      navigate("/order3");
     }
   };
 
@@ -87,14 +91,18 @@ function OrderButton2() {
             ))
           )}
         </div>
-        <Link
+        {/* <Link
           className="zaqas__number-link"
           to={selectedCard?.count == null ? () => handleClick() : "/order3"}
           onClick={() => handleClick()}
-        >
-          <button className="zaqas2__btn">{t("next")}</button>
-        </Link>
+        > */}
       </div>
+      <div className="btn__wrap">
+        <button className="zaqas2__btn" onClick={() => handleClick()}>
+          {t("next")}
+        </button>
+      </div>
+      {/* </Link> */}
     </div>
   );
 }

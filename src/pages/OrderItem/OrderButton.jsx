@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { API } from "../../api";
 import { urls } from "../../constants/urls";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LoadingAnimate from "../../assets/icons/LoadingAnimate";
 import { BasketContext } from "../../context/basketContext";
 import { LangContext } from "../../context/LanguageContext";
@@ -13,6 +13,8 @@ function OrderButton() {
   const [loading, setLoadiing] = useState(true);
 
   const { selectedCard, setSelectedCard } = useContext(BasketContext);
+
+  const navigate = useNavigate();
 
   const { language } = useContext(LangContext);
   const { t } = useLanguage();
@@ -31,8 +33,10 @@ function OrderButton() {
   };
 
   const handleClick = () => {
-    if (selectedCard == null) {
+    if (selectedCard === null || selectedCard.length == 0) {
       message.open({ type: "warning", content: "Please select one" });
+    } else {
+      navigate("/order2");
     }
   };
 
@@ -43,6 +47,19 @@ function OrderButton() {
     }
     getProducts();
   }, []);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      localStorage.removeItem("selectedCard");
+      setSelectedCard(null);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [setSelectedCard]);
 
   if (loading) {
     return (
@@ -74,7 +91,7 @@ function OrderButton() {
             </div>
           </div>
           <div className="zaqas__cards">
-            <h3>{t("SelectAService")}</h3>
+            <h2>{t("SelectAService")}</h2>
             <div className="zaqas__card">
               {modal.map((item) => (
                 <div
@@ -97,13 +114,17 @@ function OrderButton() {
             </div>
           </div>
         </div>
-        <Link
+        {/* <Link
           className="sss"
           to={selectedCard == null ? () => handleClick() : "/order2"}
           onClick={() => handleClick()}
-        >
-          <button className="global__btn sss">{t("next")}</button>
-        </Link>
+        > */}
+        <div className="btn__wrap">
+          <button className="global__btn sss" onClick={() => handleClick()}>
+            {t("next")}
+          </button>
+        </div>
+        {/* </Link> */}
       </div>
     </div>
   );

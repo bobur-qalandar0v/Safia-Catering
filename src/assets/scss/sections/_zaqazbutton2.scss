@@ -1,6 +1,7 @@
 .zaqas__number {
+
   position: relative;
-  height: 62vh;
+  height: 85vh;
 }
 .zaqas {
   &__top-line2 {
@@ -37,8 +38,8 @@
     justify-content: center;
   }
   &2__btn {
-    margin-top: 60px;
-    width: 93%;
+    // margin-top: 60px;
+    width: 100%;
     height: 40px;
     background-color: rgb(5, 10, 81);
     color: white;
@@ -57,10 +58,9 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 0 15px;
-  // border: 1px solid black;
-  height: 87%;
+  height: 72%;
   overflow: auto;
 }
 .zaqas__number-item {
