@@ -21,7 +21,7 @@ function RestartPage() {
     <div className="container">
       <div className="restart__page">
         <div className="restart__page-wrap">
-          <h2>Iltimos hammasini boshidan boshlang 👇</h2>
+          <h2 style={{textAlign: "center"}}>Serverda nosozlik! Iltimos hammasini boshidan boshlang 👇</h2>
           <button className="global__btn restart" onClick={handleClick}>
             Restart
           </button>

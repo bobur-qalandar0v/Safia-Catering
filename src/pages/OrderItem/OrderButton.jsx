@@ -96,14 +96,14 @@ function OrderButton() {
               ))}
             </div>
           </div>
-          <Link
-            className="sss"
-            to={selectedCard == null ? () => handleClick() : "/order2"}
-            onClick={() => handleClick()}
-          >
-            <button className="global__btn sss">{t("next")}</button>
-          </Link>
         </div>
+        <Link
+          className="sss"
+          to={selectedCard == null ? () => handleClick() : "/order2"}
+          onClick={() => handleClick()}
+        >
+          <button className="global__btn sss">{t("next")}</button>
+        </Link>
       </div>
     </div>
   );
