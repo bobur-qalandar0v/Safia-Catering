@@ -6,14 +6,14 @@ import { API } from "../../../api";
 import { urls } from "../../../constants/urls";
 
 function LoginPage() {
-  const { setUserToken, token } = useContext(AuthContext);
+  const { setUserToken } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const postLogin = (data) => {
     API.post(`${urls.auth.login}`, data)
       .then((res) => {
         if (res.status == 201) {
-          navigate("/home");
+          navigate("/");
           message.open({ type: "success", content: "Вход успешен" });
           setUserToken(res.data.token);
         }
@@ -29,11 +29,11 @@ function LoginPage() {
     postLogin(data);
   };
 
-  useEffect(() => {
-    if (token) {
-      navigate("/userdata");
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate("/userdata");
+  //   }
+  // }, []);
 
   return (
     <div className="container">

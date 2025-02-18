@@ -119,13 +119,13 @@ function SearchPage() {
                           </div>
                         </div>
                         <div className="card__bottom">
-                          <h4 className="card__bottom-title">
+                          <h3 className="card__bottom-title">
                             {language == "uz"
                               ? item.name_uz
                               : language == "ru"
                               ? item.name_ru
                               : item.name_eng}
-                          </h4>
+                          </h3>
                           <div className="card__bottom_all">
                             <span className="card__bottom_price">
                               {item?.price?.toLocaleString()} {t("sum")}

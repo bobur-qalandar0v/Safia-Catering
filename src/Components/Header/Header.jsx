@@ -6,7 +6,6 @@ import LoginIconActive from "../../assets/icons/LoginIconActive";
 import BasketIcon from "../../assets/icons/BasketIcon";
 import BasketIconActive from "../../assets/icons/BasketIconActive";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Request from "../../pages/Request";
 import { BasketContext } from "../../context/basketContext";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -74,7 +73,7 @@ function HeaderPart() {
       <div className="container">
         <div className="header__wrap">
           <div className="header__left">
-            <Link onClick={handleClick} to="/home">
+            <Link onClick={handleClick} to="/">
               <img className="header__logo" src="/Logo.png" alt="Logo" />
             </Link>
           </div>
@@ -108,32 +107,44 @@ function HeaderPart() {
                 {basket.length === 0 ? "" : basket.length}
               </span>
             </Link>
-            {token ? (
-              <button
-                className={`header__button ${
-                  activeButton === 4 ? "active" : ""
-                }`}
-                onClick={() => {
-                  setActiveButton(4);
-                  navigate("/userdata");
-                }}
-              >
-                {activeButton === 4 ? <LoginIconActive /> : <LoginIcon />}
-              </button>
-            ) : (
-              <Request>
+            {
+              token ? (
                 <button
+                  className={`header__button ${
+                    activeButton === 4 ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setActiveButton(4);
+                    navigate("/userdata");
+                  }}
+                >
+                  {activeButton === 4 ? <LoginIconActive /> : <LoginIcon />}
+                </button>
+              ) : (
+                <Link
+                  to="/login"
                   className={`header__button ${
                     activeButton === 3 ? "active" : ""
                   }`}
-                  onClick={() => {
-                    toggleButton(3);
-                  }}
                 >
                   {activeButton === 3 ? <LoginIconActive /> : <LoginIcon />}
-                </button>
-              </Request>
-            )}
+                </Link>
+              )
+              // (
+              //   <Request>
+              //     <button
+              //       className={`header__button ${
+              //         activeButton === 3 ? "active" : ""
+              //       }`}
+              //       onClick={() => {
+              //         toggleButton(3);
+              //       }}
+              //     >
+              //       {activeButton === 3 ? <LoginIconActive /> : <LoginIcon />}
+              //     </button>
+              //   </Request>
+              // )
+            }
           </div>
         </div>
       </div>
