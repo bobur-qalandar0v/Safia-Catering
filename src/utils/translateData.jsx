@@ -89,6 +89,11 @@ export const translateData = {
     ru: "Ваше имя",
     eng: "Your name",
   },
+  yourSurname: {
+    uz: "Familya",
+    ru: "Фамилия",
+    eng: "Surname",
+  },
   Number: {
     uz: "Raqam",
     ru: "Номер",
@@ -419,6 +424,11 @@ export const translateData = {
     uz: "Qidiruv natijalari",
     ru: "Результаты поиска",
     eng: "Search results",
+  },
+  message: {
+    uz: "Iltimos, maydonni to'ldiring",
+    ru: "Пожалуйста, заполните поле",
+    eng: "Please, fill in the field",
   },
   boldim: {
     uz: "va shaklni to'ldiring yoki menejerlar bilan bog'laning.",

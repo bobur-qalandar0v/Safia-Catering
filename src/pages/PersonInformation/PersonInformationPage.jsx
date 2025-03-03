@@ -5,6 +5,7 @@ import { urls } from "../../constants/urls";
 import { useNavigate } from "react-router-dom";
 import LoadingAniamte from "../../assets/icons/LoadingAnimate";
 import useLanguage from "../../hooks/useLanguage";
+// import FloatingInputLabel from "./FloatingIinputLabel";
 
 function PersonInformationPage() {
   const [form] = Form.useForm();
@@ -61,46 +62,51 @@ function PersonInformationPage() {
             className="person-page__inputs"
             onFinish={handleSave}
           >
-            <div className="form-item__wrap">
-              <span className="form__span">{t("yourName")}</span>
-              <Form.Item
-                className="person-page__form"
-                name="username"
-                rules={[
-                  {
-                    required: true,
-                    message: "",
-                  },
-                ]}
-              >
-                <Input type="text" className="input__name" />
-              </Form.Item>
-              <span className="form__span-tel">{t("Number")}</span>
-              <Form.Item
-                className="person-page__form-tel"
-                name="tel"
-                hasFeedback={false}
-                validateTrigger="onSubmit"
-                rules={[
-                  {
-                    required: true,
-                    message: "",
-                  },
-                  {
-                    pattern: /^\d{9}$/,
-                    message: "",
-                  },
-                ]}
-              >
-                <Input addonBefore="+998" className="input__tel" />
-              </Form.Item>
-            </div>
-            <div className="save__button-wrap">
-              <Form.Item>
-                <Button className="save__button-item" htmlType="submit">
-                  {t("Save")}
-                </Button>
-              </Form.Item>
+            <div className="person-page__form-wrap">
+              <div className="form-item__wrap">
+                <span className="form__span-tel">{t("Number")}</span>
+                <p className="person-page__tel">
+                  +998 {userData?.tel.slice(0, 2)} {userData?.tel.slice(2, 5)}{" "}
+                  {userData?.tel.slice(5, 7)} {userData?.tel.slice(7, 9)}
+                </p>
+              </div>
+              <div className="form-item__wrap add">
+                <span className="form__span-name">{t("yourName")}</span>
+                <Form.Item
+                  className="person-page__form"
+                  name="username"
+                  rules={[
+                    {
+                      required: true,
+                      message: `${t("message")}`,
+                    },
+                  ]}
+                >
+                  <Input type="text" className="input__name" />
+                </Form.Item>
+              </div>
+              <div className="form-item__wrap">
+                <span className="form__span-surname">{t("yourSurname")}</span>
+                <Form.Item
+                  name="surname"
+                  className="person-page__form"
+                  rules={[
+                    {
+                      required: true,
+                      message: `${t("message")}`,
+                    },
+                  ]}
+                >
+                  <Input type="text" className="input__surname" />
+                </Form.Item>
+              </div>
+              <div className="save__button-wrap">
+                <Form.Item>
+                  <Button className="save__button-item" htmlType="submit">
+                    {t("Save")}
+                  </Button>
+                </Form.Item>
+              </div>
             </div>
           </Form>
         </div>
