@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { routes } from "../../constants/routes";
-import { LoginPage, RegisterPage } from "../../pages";
+import { LoginPage } from "../../pages";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import HeaderPart from "../Header/Header";
@@ -9,10 +9,10 @@ function Main() {
   const location = useLocation();
   const { token, setToken } = useContext(AuthContext);
 
-  const isAuthPage =
-    location.pathname === "/register" || location.pathname === "/login";
+  // const isAuthPage =
+  //   location.pathname === "/register" || location.pathname === "/login";
 
-  if (token && isAuthPage) {
+  if (token) {
     return <Navigate to="/" replace />;
   }
 
@@ -28,12 +28,8 @@ function Main() {
     };
   }, []);
 
-  return isAuthPage ? (
-    location.pathname === "/register" ? (
-      <RegisterPage />
-    ) : (
-      <LoginPage />
-    )
+  return location.pathname === "/login" ? (
+    <LoginPage />
   ) : (
     <>
       <HeaderPart />

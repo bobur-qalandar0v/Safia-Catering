@@ -107,44 +107,28 @@ function HeaderPart() {
                 {basket.length === 0 ? "" : basket.length}
               </span>
             </Link>
-            {
-              token ? (
-                <button
-                  className={`header__button ${
-                    activeButton === 4 ? "active" : ""
-                  }`}
-                  onClick={() => {
-                    setActiveButton(4);
-                    navigate("/userdata");
-                  }}
-                >
-                  {activeButton === 4 ? <LoginIconActive /> : <LoginIcon />}
-                </button>
-              ) : (
-                <Link
-                  to="/login"
-                  className={`header__button ${
-                    activeButton === 3 ? "active" : ""
-                  }`}
-                >
-                  {activeButton === 3 ? <LoginIconActive /> : <LoginIcon />}
-                </Link>
-              )
-              // (
-              //   <Request>
-              //     <button
-              //       className={`header__button ${
-              //         activeButton === 3 ? "active" : ""
-              //       }`}
-              //       onClick={() => {
-              //         toggleButton(3);
-              //       }}
-              //     >
-              //       {activeButton === 3 ? <LoginIconActive /> : <LoginIcon />}
-              //     </button>
-              //   </Request>
-              // )
-            }
+            {token ? (
+              <button
+                className={`header__button ${
+                  activeButton === 4 ? "active" : ""
+                }`}
+                onClick={() => {
+                  setActiveButton(4);
+                  navigate("/userdata");
+                }}
+              >
+                {activeButton === 4 ? <LoginIconActive /> : <LoginIcon />}
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className={`header__button ${
+                  activeButton === 3 ? "active" : ""
+                }`}
+              >
+                {activeButton === 3 ? <LoginIconActive /> : <LoginIcon />}
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -1,12 +1,14 @@
-import { Button, Checkbox, Form, Input, message } from "antd";
-import React, { useContext, useEffect } from "react";
+import { Button, Checkbox, Form, Input, InputNumber, message } from "antd";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import { API } from "../../../api";
 import { urls } from "../../../constants/urls";
+import InputTel from "./InputTel";
 
 function LoginPage() {
   const { setUserToken } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const postLogin = (data) => {
@@ -26,14 +28,9 @@ function LoginPage() {
   };
 
   const onFinish = (data) => {
-    postLogin(data);
+    // postLogin(data);
+    console.log(data);
   };
-
-  // useEffect(() => {
-  //   if (token) {
-  //     navigate("/userdata");
-  //   }
-  // }, []);
 
   return (
     <div className="container">
@@ -50,39 +47,25 @@ function LoginPage() {
             </div>
             <div className="login-page__inputs">
               <Form.Item
-                name="username"
+                name="tel"
                 rules={[
                   {
                     required: true,
-                    message: "Please input your username!",
+                    message: "",
                   },
                 ]}
               >
-                <Input className="input__name" placeholder="Ваше имя" />
+                <InputTel />
               </Form.Item>
-              <Form.Item
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your password!",
-                  },
-                ]}
-              >
-                <Input.Password
-                  className="input__password"
-                  type="password"
-                  placeholder="Пароль"
-                />
-              </Form.Item>
-              <div className="checkbox__div">
-                <Form.Item>
-                  <Checkbox type="checkbox" />
+              <div className="input__sms-wrap">
+                <Form.Item className="input__sms-item">
+                  <Input
+                    className="input__sms"
+                    type="number"
+                    placeholder="0000"
+                  />
                 </Form.Item>
-                <span>
-                  Согласен с условиями Пользовательского соглашения и Политики
-                  конфидециальности
-                </span>
+                <Button>Получить СМС код</Button>
               </div>
             </div>
           </div>
