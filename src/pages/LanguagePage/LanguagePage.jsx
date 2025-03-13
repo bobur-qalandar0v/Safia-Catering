@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { LangContext } from "../../context/LanguageContext";
 import useLanguage from "../../hooks/useLanguage";
 function LanguagePage() {
