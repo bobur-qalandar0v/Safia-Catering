@@ -19,6 +19,7 @@ function HeaderPart() {
   const Location = useLocation();
 
   const userId = localStorage.getItem("userId");
+  const tel = JSON.parse(localStorage.getItem("tel"));
 
   const handleClick = () => {
     localStorage.removeItem("basketCount");
@@ -88,7 +89,8 @@ function HeaderPart() {
               {activeButton === 1 ? <SearchIconActive /> : <SearchIcon />}
             </Link>
             <Link
-              to={token && userId ? "/basket" : userId ? "/login" : "/register"}
+              // to={token && userId ? "/basket" : "/login"}
+              to={tel ? "/basket" : "/login"}
               className={`header__button header__basket ${
                 activeButton === 2 ? "active" : ""
               }`}
@@ -107,7 +109,7 @@ function HeaderPart() {
                 {basket.length === 0 ? "" : basket.length}
               </span>
             </Link>
-            {token ? (
+            {tel ? (
               <button
                 className={`header__button ${
                   activeButton === 4 ? "active" : ""

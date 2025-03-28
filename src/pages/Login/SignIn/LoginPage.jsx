@@ -54,13 +54,18 @@ function LoginPage() {
   };
 
   const onFinish = (data) => {
-    postLogin(data);
-    // console.log(data);
+    // postLogin(data);
+    localStorage.setItem("tel", JSON.stringify(data));
+    navigate("/");
+    message.success("Kirish muvoffaqiyatli bajarildi");
   };
 
   return (
     <div className="container">
       <div className="login-page">
+        <marquee behavior="" direction="">
+          Hozirda saytni backend qismi yo'q
+        </marquee>
         <Form
           form={form}
           layout="vertical"
@@ -84,7 +89,7 @@ function LoginPage() {
               >
                 <InputTel />
               </Form.Item>
-              <div className="input__sms-wrap">
+              {/* <div className="input__sms-wrap">
                 <Form.Item
                   className="input__sms-item"
                   rules={[
@@ -102,7 +107,7 @@ function LoginPage() {
                   />
                 </Form.Item>
                 <Button onClick={getSmsCode}>Получить СМС код</Button>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="next__button-wrap">

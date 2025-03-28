@@ -14,8 +14,8 @@ import { useNavigate } from "react-router-dom";
 function BasketCart() {
   const [form] = useForm();
   const storedId = localStorage.getItem("userId");
-
-  const [userData, setUserData] = useState(null);
+  const userData = JSON.parse(localStorage.getItem("tel"));
+  // const [userData, setUserData] = useState(null);
 
   const navigate = useNavigate();
 
@@ -80,20 +80,20 @@ function BasketCart() {
     }
   };
 
-  const getUserData = async () => {
-    const { data } = await API.get(`${urls.auth.user}/${storedId}`);
-    setUserData(data);
-  };
+  // const getUserData = async () => {
+  //   const { data } = await API.get(`${urls.auth.user}/${storedId}`);
+  //   setUserData(data);
+  // };
 
-  useEffect(() => {
-    getUserData();
-  }, []);
+  // useEffect(() => {
+  //   getUserData();
+  // }, []);
 
-  useEffect(() => {
-    if (userData) {
-      form.setFieldsValue(userData);
-    }
-  }, [userData]);
+  // useEffect(() => {
+  //   if (userData) {
+  //     form.setFieldsValue(userData);
+  //   }
+  // }, [userData]);
 
   let sum = null;
 
@@ -191,7 +191,7 @@ function BasketCart() {
             </Form.Item>
           </div>
 
-          <div className="personinformation__input">
+          {/* <div className="personinformation__input">
             <h3>{t("YourDetails")}</h3>
             <div className="name__input">
               <span>{t("yourName")}</span>
@@ -212,7 +212,7 @@ function BasketCart() {
                 />
               </Form.Item>
             </div>
-          </div>
+          </div> */}
           <div className="order__btn-wrap">
             <div className="order__btn-promacode">
               <span>{t("promacode")}</span>

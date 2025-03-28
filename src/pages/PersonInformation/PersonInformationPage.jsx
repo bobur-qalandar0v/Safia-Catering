@@ -9,30 +9,33 @@ import useLanguage from "../../hooks/useLanguage";
 
 function PersonInformationPage() {
   const [form] = Form.useForm();
+
   const storedId = localStorage.getItem("userId");
-  const [userData, setUserData] = useState(null);
+  const userData = JSON.parse(localStorage.getItem("tel"));
+  // const [userData, setUserData] = useState(null);
 
   const { t } = useLanguage();
 
   const navigate = useNavigate();
 
-  const getUserData = async () => {
-    const { data } = await API.get(`${urls.auth.user}/${storedId}`);
-    setUserData(data);
-  };
+  // const getUserData = async () => {
+  //   const { data } = await API.get(`${urls.auth.user}/${storedId}`);
+  //   setUserData(data);
+  // };
 
   const handleSave = (values) => {
-    API.patch(urls.user.edit(storedId), values).then((res) => {
-      if (res.status === 200) {
-        message.open({ type: "success", content: "Изменено успешно" });
-        navigate("/userdata");
-      }
-    });
+    // API.patch(urls.user.edit(storedId), values).then((res) => {
+    //   if (res.status === 200) {
+    //     message.open({ type: "success", content: "Изменено успешно" });
+    //     navigate("/userdata");
+    //   }
+    // });
+    navigate("/userdata");
   };
 
-  useEffect(() => {
-    getUserData();
-  }, []);
+  // useEffect(() => {
+  //   getUserData();
+  // }, []);
 
   useEffect(() => {
     if (userData) {
@@ -66,8 +69,8 @@ function PersonInformationPage() {
               <div className="form-item__wrap">
                 <span className="form__span-tel">{t("Number")}</span>
                 <p className="person-page__tel">
-                  +998 {userData?.tel.slice(0, 2)} {userData?.tel.slice(2, 5)}{" "}
-                  {userData?.tel.slice(5, 7)} {userData?.tel.slice(7, 9)}
+                  +998 {userData?.tel.slice(5, 7)} {userData?.tel.slice(8, 11)}{" "}
+                  {userData?.tel.slice(12, 14)} {userData?.tel.slice(15, 17)}
                 </p>
               </div>
               <div className="form-item__wrap add">
@@ -75,12 +78,12 @@ function PersonInformationPage() {
                 <Form.Item
                   className="person-page__form"
                   name="username"
-                  rules={[
-                    {
-                      required: true,
-                      message: `${t("message")}`,
-                    },
-                  ]}
+                  // rules={[
+                  //   {
+                  //     required: true,
+                  //     message: `${t("message")}`,
+                  //   },
+                  // ]}
                 >
                   <Input type="text" className="input__name" />
                 </Form.Item>
@@ -90,12 +93,12 @@ function PersonInformationPage() {
                 <Form.Item
                   name="surname"
                   className="person-page__form"
-                  rules={[
-                    {
-                      required: true,
-                      message: `${t("message")}`,
-                    },
-                  ]}
+                  // rules={[
+                  //   {
+                  //     required: true,
+                  //     message: `${t("message")}`,
+                  //   },
+                  // ]}
                 >
                   <Input type="text" className="input__surname" />
                 </Form.Item>

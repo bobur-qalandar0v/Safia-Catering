@@ -16,8 +16,9 @@ function UserData() {
   const { setToken } = useContext(AuthContext);
 
   const handleClick = () => {
-    localStorage.removeItem("token");
-    setToken("");
+    // localStorage.removeItem("token");
+    // setToken("");
+    localStorage.removeItem("tel");
   };
   return (
     <div className="container">
